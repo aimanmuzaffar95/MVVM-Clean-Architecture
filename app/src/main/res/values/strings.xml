@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MVVM Clean Architecture</string>
+    <string name="tab_title_users">Users</string>
+    <string name="tab_title_posts">Posts</string>
+    <string name="tab_title_comments">Comments</string>
+    <string name="company_details">Company details</string>
+    <string name="ok">Ok</string>
+</resources>

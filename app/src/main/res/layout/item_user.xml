@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.aiman.mvvmcleanarchitecture.models.UsersModel" />
+        <variable
+            name="fullAddress"
+            type="java.lang.String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/iv_profile_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_user_placeholder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                style="@style/personDetailHighlightStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Aiman Muzafar"
+                android:text="@{user.name}"/>
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                style="@style/personDetailTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                tools:text="Username: aiman95"
+                android:text="@{user.username}"/>
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                style="@style/personDetailTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
+                app:layout_constraintTop_toBottomOf="@+id/tv_username"
+                tools:text="aiman@gmail.com"
+                android:text="@{user.email}"/>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/personDetailTextViewStyle"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_profile_image"
+                tools:text="House no. 1, Street no. 2, Johar Town, Lahore, Pakistan"
+                android:text="@{fullAddress}"/>
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/personDetailTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_address"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address"
+                tools:text="0333-123-4567"
+                android:text="@{user.phone}"/>
+
+            <TextView
+                android:id="@+id/tv_website"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/personDetailTextViewStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_phone"
+                tools:text="www.example.net"
+                android:text="@{user.website}"/>
+
+            <TextView
+                android:id="@+id/company_details_title"
+                style="@style/personDetailHighlightStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/company_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_website" />
+
+            <TextView
+                android:id="@+id/tv_company_name"
+                style="@style/personDetailTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/company_details_title"
+                tools:text="Company name"
+                android:text="@{user.company.name}"/>
+
+            <TextView
+                android:id="@+id/tv_company_catch_phrase"
+                style="@style/personDetailTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_company_name"
+                tools:text="Multi-layered client-server neural-net"
+                android:text="@{user.company.catchPhrase}"/>
+
+            <TextView
+                android:id="@+id/tv_company_bs"
+                style="@style/personDetailTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_company_catch_phrase"
+                tools:text="synergize scalable supply-chains"
+                android:text="@{user.company.bs}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
