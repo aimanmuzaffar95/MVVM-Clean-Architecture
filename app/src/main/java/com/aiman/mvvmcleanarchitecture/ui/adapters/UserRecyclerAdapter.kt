@@ -27,9 +27,7 @@ class UserRecyclerAdapter(
         return ViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
+    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.user = list[position]

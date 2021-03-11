@@ -5,36 +5,34 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aiman.mvvmcleanarchitecture.R
-import com.aiman.mvvmcleanarchitecture.databinding.ItemPostBinding
-import com.aiman.mvvmcleanarchitecture.models.PostsModel
+import com.aiman.mvvmcleanarchitecture.databinding.ItemCommentBinding
+import com.aiman.mvvmcleanarchitecture.models.CommentsModel
 
-class PostRecyclerAdapter(
-    private var list: ArrayList<PostsModel>
-): RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder>() {
+class CommentRecyclerAdapter(
+    private var list: ArrayList<CommentsModel>
+): RecyclerView.Adapter<CommentRecyclerAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val binding: ItemPostBinding): RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemCommentBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemPostBinding = DataBindingUtil.inflate(
+        val binding: ItemCommentBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_post,
+            R.layout.item_comment,
             parent,
             false
         )
-
         return ViewHolder(binding)
     }
 
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.post = list[position]
+        holder.binding.comment = list[position]
         holder.binding.executePendingBindings()
     }
 
-    fun updateList(newList: ArrayList<PostsModel>) {
+    fun updateList(newList: ArrayList<CommentsModel>) {
         this.list = newList
         notifyDataSetChanged()
     }
-
 }

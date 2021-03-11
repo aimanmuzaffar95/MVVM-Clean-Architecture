@@ -30,7 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tv_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -42,14 +42,14 @@
                 android:text="@{user.name}"/>
 
             <TextView
-                android:id="@+id/tv_body"
+                android:id="@+id/tv_username"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 style="@style/personDetailTextViewStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
                 tools:text="Username: aiman95"
                 android:text="@{user.username}"/>
 
@@ -61,7 +61,7 @@
                 style="@style/personDetailTextViewStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
-                app:layout_constraintTop_toBottomOf="@+id/tv_body"
+                app:layout_constraintTop_toBottomOf="@+id/tv_username"
                 tools:text="aiman@gmail.com"
                 android:text="@{user.email}"/>
 

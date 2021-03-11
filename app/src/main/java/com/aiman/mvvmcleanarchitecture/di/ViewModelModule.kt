@@ -1,6 +1,7 @@
 package com.aiman.mvvmcleanarchitecture.di
 
 import androidx.lifecycle.ViewModel
+import com.aiman.mvvmcleanarchitecture.viewmodels.CommentsFragmentViewModel
 import com.aiman.mvvmcleanarchitecture.viewmodels.PostFragmentViewModel
 import com.aiman.mvvmcleanarchitecture.viewmodels.UserFragmentViewModel
 import dagger.Binds
@@ -19,4 +20,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(PostFragmentViewModel::class)
     abstract fun bindPostFragmentViewModel(viewModel: PostFragmentViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CommentsFragmentViewModel::class)
+    abstract fun bindCommentFragmentViewModel(viewModel: CommentsFragmentViewModel): ViewModel
 }

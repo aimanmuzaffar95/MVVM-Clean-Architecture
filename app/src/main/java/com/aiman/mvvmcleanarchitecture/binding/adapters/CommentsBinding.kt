@@ -4,13 +4,15 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.aiman.mvvmcleanarchitecture.models.CommentsModel
 import com.aiman.mvvmcleanarchitecture.models.PostsModel
+import com.aiman.mvvmcleanarchitecture.ui.adapters.CommentRecyclerAdapter
 import com.aiman.mvvmcleanarchitecture.ui.adapters.PostRecyclerAdapter
 
-object PostsBinding {
+object CommentsBinding {
     @JvmStatic
     @BindingAdapter(value = ["list"], requireAll = true)
-    fun bindPostsRecycler(recyclerView: RecyclerView, list: ArrayList<PostsModel>?) {
+    fun bindCommentsRecycler(recyclerView: RecyclerView, list: ArrayList<CommentsModel>?) {
 
         if(list == null)
             return
@@ -26,9 +28,9 @@ object PostsBinding {
         }
 
         if(recyclerView.adapter == null) {
-            recyclerView.adapter = PostRecyclerAdapter(list)
+            recyclerView.adapter = CommentRecyclerAdapter(list)
         } else {
-            (recyclerView.adapter as PostRecyclerAdapter).updateList(list)
+            (recyclerView.adapter as CommentRecyclerAdapter).updateList(list)
         }
     }
 }

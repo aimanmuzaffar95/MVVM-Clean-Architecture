@@ -39,7 +39,7 @@ class PostFragment : Fragment() {
             R.layout.fragment_post, container, false
         )
 
-        MyApplication.getAppComponent(activity as Context).inject(this)
+        MyApplication.getAppComponent(requireContext()).inject(this)
 
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(PostFragmentViewModel::class.java)

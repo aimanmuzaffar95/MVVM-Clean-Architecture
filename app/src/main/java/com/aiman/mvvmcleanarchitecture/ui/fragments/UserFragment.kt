@@ -39,7 +39,7 @@ class UserFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_user, container, false)
 
-        MyApplication.getAppComponent(activity as Context).inject(this)
+        MyApplication.getAppComponent(requireContext()).inject(this)
 
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(UserFragmentViewModel::class.java)

@@ -1,5 +1,6 @@
 package com.aiman.mvvmcleanarchitecture.api
 
+import com.aiman.mvvmcleanarchitecture.models.CommentsModel
 import com.aiman.mvvmcleanarchitecture.models.PostsModel
 import com.aiman.mvvmcleanarchitecture.models.UsersModel
 import io.reactivex.Observable
@@ -13,5 +14,5 @@ interface ApiCallInterface {
     fun getPosts(): Observable<ArrayList<PostsModel>>
 
     @GET(Urls.COMMENTS)
-    fun getComments(): Observable<ArrayList<UsersModel>>
+    fun getComments(): Observable<ArrayList<CommentsModel>>
 }

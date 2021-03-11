@@ -2,6 +2,7 @@ package com.aiman.mvvmcleanarchitecture.di
 
 import androidx.lifecycle.ViewModel
 import com.aiman.mvvmcleanarchitecture.MyApplication
+import com.aiman.mvvmcleanarchitecture.ui.fragments.CommentFragment
 import com.aiman.mvvmcleanarchitecture.ui.fragments.PostFragment
 import com.aiman.mvvmcleanarchitecture.ui.fragments.UserFragment
 import dagger.Component
@@ -16,4 +17,6 @@ interface AppComponent {
     fun inject(userFragment: UserFragment)
 
     fun inject(postFragment: PostFragment)
+
+    fun inject(commentFragment: CommentFragment)
 }

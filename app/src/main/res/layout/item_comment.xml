@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="post"
-            type="com.aiman.mvvmcleanarchitecture.models.PostsModel" />
+            name="comment"
+            type="com.aiman.mvvmcleanarchitecture.models.CommentsModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -24,11 +24,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{post.title}"
+                android:text="@{comment.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Aiman Muzafar" />
+                tools:text="Comment name" />
 
             <TextView
                 android:id="@+id/tv_email"
@@ -36,11 +36,23 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{post.body}"
+                android:text="@{comment.email}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name"
-                tools:text="Username: aiman95" />
+                tools:text="aiman@abc.com" />
+
+            <TextView
+                android:id="@+id/tv_body"
+                style="@style/personDetailTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{comment.body}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email"
+                tools:text="body" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
