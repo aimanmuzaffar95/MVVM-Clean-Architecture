@@ -28,7 +28,6 @@ class UserFragment : Fragment() {
 
     private lateinit var binding: FragmentUserBinding
     private lateinit var viewModel: UserFragmentViewModel
-    var userList = ArrayList<UsersModel>()
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -49,8 +48,6 @@ class UserFragment : Fragment() {
             Observer {
             consumeResponse(it)
         })
-
-        viewModel.hitGetUsersResponseLiveData()
 
         return binding.root
     }
@@ -73,8 +70,11 @@ class UserFragment : Fragment() {
                 showAlertMessage(requireContext(), apiResponse.error?.message.toString())
             }
         }
-
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.hitGetUsers()
+    }
 
 }

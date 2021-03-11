@@ -4,28 +4,29 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.aiman.mvvmcleanarchitecture.api.ApiResponse
 import com.aiman.mvvmcleanarchitecture.api.Repository
+import com.aiman.mvvmcleanarchitecture.models.PostsModel
 import com.aiman.mvvmcleanarchitecture.models.UsersModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class UserFragmentViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+class PostFragmentViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
     private val disposables = CompositeDisposable()
-    private val usersResponseLiveData = MutableLiveData<ApiResponse<ArrayList<UsersModel>>>()
+    private val postsResponseLiveData = MutableLiveData<ApiResponse<ArrayList<PostsModel>>>()
 
-    fun getUsersResponseLiveData(): MutableLiveData<ApiResponse<ArrayList<UsersModel>>> {
-        return usersResponseLiveData
+    fun getPostsResponseLiveData(): MutableLiveData<ApiResponse<ArrayList<PostsModel>>> {
+        return postsResponseLiveData
     }
 
-    fun hitGetUsers() {
-        disposables.add(repository.executeGetUsers()
+    fun hitGetPosts() {
+        disposables.add(repository.executeGetPosts()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { usersResponseLiveData.setValue(ApiResponse.loading()) }
+            .doOnSubscribe { postsResponseLiveData.setValue(ApiResponse.loading()) }
             .subscribe(
-                { result -> usersResponseLiveData.setValue(ApiResponse.success(result)) },
-                { throwable -> usersResponseLiveData.setValue(ApiResponse.error(throwable)) }
+                { result -> postsResponseLiveData.setValue(ApiResponse.success(result)) },
+                { throwable -> postsResponseLiveData.setValue(ApiResponse.error(throwable)) }
             ))
     }
 
@@ -33,4 +34,5 @@ class UserFragmentViewModel @Inject constructor(private val repository: Reposito
         super.onCleared()
         disposables.clear()
     }
+
 }

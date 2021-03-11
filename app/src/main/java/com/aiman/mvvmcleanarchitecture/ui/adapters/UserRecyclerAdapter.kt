@@ -10,8 +10,7 @@ import com.aiman.mvvmcleanarchitecture.databinding.ItemUserBinding
 import com.aiman.mvvmcleanarchitecture.models.UsersModel
 
 class UserRecyclerAdapter(
-    private var list: ArrayList<UsersModel>,
-    private val context: Context
+    private var list: ArrayList<UsersModel>
 ) : RecyclerView.Adapter<UserRecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root)

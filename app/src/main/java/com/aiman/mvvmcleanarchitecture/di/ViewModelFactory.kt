@@ -11,7 +11,7 @@ constructor(private val creators: Map<Class<out ViewModel>, Provider<ViewModel>>
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         var creator: Provider<out ViewModel>? = creators[modelClass]
-        if (creator == null) { // if the viewmodel has not been created
+        if (creator == null) { // if the view model has not been created
 
             // loop through the allowable keys (aka allowed classes with the @ViewModelKey)
             for ((key, value) in creators) {
